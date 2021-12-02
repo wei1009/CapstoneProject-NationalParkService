@@ -1,0 +1,52 @@
+{%block content%}
+<nav id="mainNavbar" class="navbar navbar-dark navbar-expand-lg py-2   bg-primary">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand">National Park</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto navbarBtn">
+                <span class="navbarSearch">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/"><i class="fas fa-home" style="font-size: 1.5em"></i>
+                            Home</a>
+                    </li>
+                    {% if g.user %}
+                    <li class="nav-item">
+                        <a class=" nav-link active" href="/user/{{ g.user.id }}/favorites"
+                            style="text-decoration:none"></i><i class="fas fa-heart" style="font-size: 1.1em"></i> My
+                            favorite </a>
+                    </li>
+                    {% endif %}
+                </span>
+                <span class="loginOutBtn">
+                    {% if not g.user %}
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/login">Login <i class="fas fa-sign-in-alt"
+                                style="font-size: 1.2em"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/register">Sign up <i class="fas fa-user-plus"
+                                style="font-size: 1.2em"></i></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/logout">Logout <i class="fas fa-sign-out-alt"
+                                style="font-size: 1.3em"></i></a>
+                    </li>
+                    {% endif %}
+                </span>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </div>
+</nav>
+<div>
+    {% for message in get_flashed_messages()%}
+    <div>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{%block content%}
+{% include "pagenavbar.html" %}
+
+<div>
+
+    <div class="parkinfoshow">
+        <div id="carouselExampleControls" class="carousel slide  " data-bs-ride="carousel">
+            <div class="carousel-inner parkinfoBanner">
+                {% for image in images%}
+                {% if loop.index==1 %}
+                <div class="carousel-item active ">
+                    <img src="{{ image['url'] }}" class="d-block w-100 parkInfoImg" alt="{{ image['url'] }}">
+                </div>
+                {% else %}
+                <div class="carousel-item  ">
+                    <img src="{{ image['url'] }}" class="d-block w-100 parkInfoImg" alt="{{ image['url'] }}">
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="parkinfoName">
+            <div class="parkInfoHeader">{{ park.name }}</div>
+            <div class="parkInfoDesc">{{ park.city }}, {{ park.states }}</div>
+        </div>
+    </div>
+    <div class="parkinfoDetail">
+        <div id="parkFunction">
+            <form method="POST" action="/park/{{ park.parkCode }}/addfavoritepark" id="parkLikeForm">
+                <span class="remind">Log in to add favorites!</span>
+                <button class="btn  btn-lg parkFunctionBtn
+                    {{'btn-danger' if parkcode in likes else 'btn-outline-danger'}}
+                    "><i class="far fa-heart"></i></button>
+
+            </form>
+        </div>
+        <ul class="parkinfoList">
+            <li>
+                <div class="parkinfoListTitle">Description:</div>
+                {{ park.description }}
+            </li>
+            <hr>
+            <li>
+                <div class="parkinfoListTitle">Activities:</div>
+                <div class="activitiesList">
+                    {% for activity in park.activities %}
+                    <span class="badge activity">{{ activity.name }}</span>
+                    {% endfor %}
+                </div>
+                <div class="activitiesBtn">
+                    <button class="btn btn-primary btn-sm" id="activitiesLodeMore">Load More</button>
+                    <button class="btn btn-secondary btn-sm" id="activitiesShowLess">Show less</button>
+                </div>
+            </li>
+            <hr>
+            <li>
+                <div class="parkinfoListTitle">Weather infomation:</div>
+                <div>{{ park.weatherInfo }}</div>
+            </li>
+            <hr>
+            <li>
+                <div class="pparkinfoListTitle">Contact infomation:</div>
+                <div> Email: <a href="{{ park.email}}">{{park.email}}</a></div>
+                <div> Website: <a href="{{  park.url }}">{{ park.url }}</a></div>
+                <div>Get directions:</div>
+                <iframe width="95%" height="450" frameborder="0" style="border:0; padding:10px 20px" src="{{ mapinfo }}"
+                    allowfullscreen>
+                </iframe>
+
+            </li>
+        </ul>
+
+    </div>
+</div>
+</div>
+{% endblock %}

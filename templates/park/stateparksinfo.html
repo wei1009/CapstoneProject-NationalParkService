@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{%block content%}
+{% include "pagenavbar.html" %}
+<div class="favoritePage">
+    <h1>All National Parks in {{statename}}</h1>
+    <div class="container">
+        <div class="row g-3">
+            {% for park in state %}
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 cardList">
+                <div class="card rounded shadow-lg border-0 d-block">
+                    <a href="/parkinfo/{{ park['parkCode'] }}"  style="text-decoration:none;">
+                        <img src="{{ park['images'][0]['url'] }}" alt="Responsive image" class="card-img-top">
+                        <div class="card-body p-2 grid-container">
+                            <h6 class="item1 cardDark"> {{ park["fullName"] }}</h6>
+                            <p class="card-text small text-muted font-italic item2">
+                                {{ park["addresses"][0]["city"] }}, {{ park["states"] }}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+{% endblock %}

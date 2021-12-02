@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{%block content%}
+{% include "homenavbar.html" %}
+
+<div class="homepageCover">
+    <img class="homepageImg"
+        srcset="https://images.unsplash.com/photo-1527489377706-5bf97e608852?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=959&q=80">
+    <div class="searchTitle text-white ">
+        <h1 class="title">Find your next National Park</h1>
+        <div class="searchBar container">
+            <form class="row formText" autocomplete="off">
+                <input id="parkSearchField" type="text" class="searchText col-8 parkSearchField"
+                    placeholder="Search by park name, city or state">
+                <button type="submit" class="col-1 fas fa-arrow-circle-right searchBarSubmit"></button>
+            </form>
+            <div class="searchParkDiv">
+                <ul class="searchParkList">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
