@@ -1,4 +1,4 @@
-#National Park Service App
+# National Park Service App
 
 #### Try the App Here  <span> [https://national-park-search-service.herokuapp.com/](https://national-park-search-service.herokuapp.com/) </span>
 
