@@ -4,14 +4,15 @@
 
 
 
-##About the App
+## About the App
 What is the best way to find the national park you want to visit? This is a search web app for national parks in the United States. This web app presents information of national park to users. Information includes national park introduction, activities and locations
 
 ## Features
 
 1. Users can search for national parks by states, city and park name, users can also select a national park from the drop-down menu.
 2. The page provides users with park information and a map.
-3. When user sign up, user can add the national park to favorites page.
+3. Add ability to register, login and logout.
+4. When user sign up, user can add the national park to favorites page.
 
 
 ## User Flow
@@ -34,7 +35,7 @@ Html, Css, Bootstrap,JavaScript, Python, Git, Visual Studio Code
 
 ## How to find and run tests
 
-To run a file containing unittests, you can run the comman
+To run a file containing unittests, you can run the command
 
 ```
 FLASK_ENV=production python -m unittest test.py
