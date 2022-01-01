@@ -26,7 +26,7 @@ What is the best way to find the national park you want to visit? This is a sear
 </div>
 
 ## APIs
-National Park Service API: [https://developer.nps.gov/api/v1/parks](https://developer.nps.gov/api/v1/parks)
+National Park Service API: [https://developer.nps.gov/api/v1/parks](https://developer.nps.gov/api/v1/parks)  
 Google Map API: [https://www.google.com/maps/embed/v1/place](https://www.google.com/maps/embed/v1/place)
 
 ## Tech Stack
