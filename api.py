@@ -7,6 +7,7 @@ GOOGLE_MAP_API_URL ="https://www.google.com/maps/embed/v1/place"
 API_SECRET_KEY=os.environ.get('API_SECRET_KEY')
 GOOGLE_API_KEY=os.environ.get('Google_API_KEY')
 
+
 DEFAULT_PARK_API_LIMIT = 1000
 DEFAULT_ZOOM_SIZE=13
 
